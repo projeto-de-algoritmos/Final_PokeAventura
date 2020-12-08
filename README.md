@@ -1,44 +1,51 @@
-**!! Atenção: Renomeie o seu repositório para (Tema)_(NomeDoProjeto). !!** 
+# Poke Aventura
 
-Temas:
- - Grafos1
- - Grafos2
- - PD
- - D&C
- - Greed
- - Final 
- 
- **!! *Não coloque os nomes dos alunos no título do repositório*. Exemplo de título correto: Grafos2_Labirinto-do-Minotauro !!**
- 
- (Apague essa seção)
-
-# NomedoProjeto
-
-**Número da Lista**: X<br>
-**Conteúdo da Disciplina**: XXXXXXXXXX<br>
+**Número da Lista**: 6<br>
+**Conteúdo da Disciplina**: Final<br>
 
 ## Alunos
 |Matrícula | Aluno |
 | -- | -- |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
-| xx/xxxxxx  |  xxxx xxxx xxxxx |
+| 15/0120630  |  Caio Oliveira de Moraes |
+| 16/0015294  |  Matheus Rodrigues do Nascimento |
 
 ## Sobre 
-Descreva os objetivos do seu projeto e como ele funciona. 
+O projeto conta a historia de uma aventura de um mestre pokemon, e o projetp tem intuimo de mostrar o menor caminho que esse treinador deve tomar utilizando o algoritmo de Dijkstra e também utilizando o algoritmo de merge sort para mostrar qual a sequencia ideal de inimigos que o meste deve emfrentar para obter sucesso na sua jornada. 
 
 ## Screenshots
-Adicione 3 ou mais screenshots do projeto em funcionamento.
+
+![print1](./assets/print1.png)
+
+![print2](./assets/print2.png)
+
+![print3](./assets/print3.png)
+
 
 ## Instalação 
-**Linguagem**: xxxxxx<br>
-**Framework**: (caso exista)<br>
+**Linguagem**: Javascript<br>
+**Framework**: React<br>
 Descreva os pré-requisitos para rodar o seu projeto e os comandos necessários.
 
 ## Uso 
-Explique como usar seu projeto caso haja algum passo a passo após o comando de execução.
 
-## Outros 
-Quaisquer outras informações sobre seu projeto podem ser descritas abaixo.
+Instale as dependencias
+
+`yarn `
+
+Rode a aplicação com o comando 
+
+`yarn start`
+
+Acesse o poke aventura na página
+
+`localhost:3000`
+
+
+
+## Uso 
+Para utilizar a aplicação apenas clique no botão proseguir para ver o próximo passo da aventura
+
+
 
 
 
