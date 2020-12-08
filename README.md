@@ -45,6 +45,8 @@ Acesse o poke aventura na página
 ## Uso 
 Para utilizar a aplicação apenas clique no botão proseguir para ver o próximo passo da aventura
 
+## Outros
+O vídeo se encontra na pasta assets
 
 
 
