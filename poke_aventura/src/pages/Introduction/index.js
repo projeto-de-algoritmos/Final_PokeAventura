@@ -1,8 +1,9 @@
 import React from "react";
 
-import { Container, StoryBox, Title, Btn } from "./styles";
+import { Container, StoryBox, Title, Btn, Row } from "./styles";
+import { PROFESSOR } from "../../assets";
 
-function Introduction() {
+function Introduction({ nextStep }) {
   return (
     <Container>
       <StoryBox>
@@ -14,9 +15,12 @@ function Introduction() {
           pokemon mas para isso é necessário escolher o melhor caminho até o
           topo{" "}
         </p>
-        <Btn>
-          <p>Prosseguir</p>
-        </Btn>
+        <Row>
+          <Btn>
+            <p onClick={nextStep}>Prosseguir</p>
+          </Btn>
+          <img src={PROFESSOR} style={{ height: 175 }} />
+        </Row>
       </StoryBox>
     </Container>
   );

@@ -33,3 +33,10 @@ export const Btn = styled.button`
   width: 50%;
   margin-top: 90px;
 `;
+
+export const Row = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+`;
