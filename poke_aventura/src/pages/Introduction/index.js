@@ -2,7 +2,7 @@ import React from "react";
 
 import { Container, StoryBox, Title, Btn } from "./styles";
 
-function Introduction() {
+function Introduction({ nextStep }) {
   return (
     <Container>
       <StoryBox>
@@ -14,7 +14,7 @@ function Introduction() {
           pokemon mas para isso é necessário escolher o melhor caminho até o
           topo{" "}
         </p>
-        <Btn>
+        <Btn onClick={nextStep}>
           <p>Prosseguir</p>
         </Btn>
       </StoryBox>
