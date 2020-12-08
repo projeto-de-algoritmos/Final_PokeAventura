@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import ButtonPokemon from "../../components/ButtonPokemon";
-import { Container, Btn } from "./styles";
+import { Container, Btn, Column, Step, CityName, ColumnTeste } from "./styles";
 import rocket1 from "../../assets/rocket1.png";
 import rocket2 from "../../assets/rocket2.png";
 import rocket3 from "../../assets/rocket3.png";
 import api from "../../services/api";
 import { mergeSort } from "../../utils/merge";
+import CircularProgress from "@material-ui/core/CircularProgress";
 
 //const giovanni = "../../assets/giovanni.png";
 
@@ -14,6 +15,7 @@ function CityEnemies() {
   const [isLoading, setIsLoading] = useState(false);
 
   async function handleOrganize() {
+    setIsLoading(true);
     var tempArray = enemyTeam;
 
     for await (let enemy of enemyTeam) {
@@ -30,6 +32,7 @@ function CityEnemies() {
     let teste = mergeSort(tempArray);
     console.log(teste);
     setEnemyTeam(teste);
+    setIsLoading(false);
   }
 
   useEffect(() => {
@@ -61,22 +64,52 @@ function CityEnemies() {
     }
   }, []);
 
+  console.log(enemyTeam);
+
   return (
-    <>
+    <Step>
+      <CityName>Pallet Town</CityName>
+      <div style={{ width: "60%", textAlign: "justify" }}>
+        <p>
+          Esses serão os inimigos que ira encontrar no ginásio, para se preparar
+          para eles, que tal ordernar do mais forte ao mais fraco ? para isso
+          clique no botão abaixo e descubra o poder dos seus oponentes
+        </p>
+      </div>
       <Btn onClick={handleOrganize}>
-        <p>Organizar</p>
+        <p>Descobrir o poder</p>
       </Btn>
-      {enemyTeam.map((enemy) => {
-        return (
-          <Container>
-            <img src={enemy.sprite} />
-            <ButtonPokemon pokemonIndex={enemy.pokemons[0]} />
-            <ButtonPokemon pokemonIndex={enemy.pokemons[1]} />
-            <ButtonPokemon pokemonIndex={enemy.pokemons[2]} />
-          </Container>
-        );
-      })}
-    </>
+      {isLoading ? (
+        <CircularProgress />
+      ) : (
+        <ColumnTeste>
+          {enemyTeam.map((enemy) => {
+            return (
+              <Container>
+                <Column>
+                  <img src={enemy.sprite} />
+
+                  {enemy.totalForce ? (
+                    <Column>
+                      <p>Força total </p>
+                      <p>{enemy.totalForce}</p>
+                    </Column>
+                  ) : (
+                    <Column>
+                      <p>Força total </p>
+                      <p>???</p>
+                    </Column>
+                  )}
+                </Column>
+                <ButtonPokemon pokemonIndex={enemy.pokemons[0]} />
+                <ButtonPokemon pokemonIndex={enemy.pokemons[1]} />
+                <ButtonPokemon pokemonIndex={enemy.pokemons[2]} />
+              </Container>
+            );
+          })}
+        </ColumnTeste>
+      )}
+    </Step>
   );
 }
 

@@ -10,7 +10,7 @@ function ButtonPokemon({ pokemonIndex }) {
   useEffect(() => {
     const index = pokemonIndex;
     setSelectedPokemon(pokemon[index]);
-  }, []);
+  }, [pokemonIndex]);
 
   return (
     <Container>
