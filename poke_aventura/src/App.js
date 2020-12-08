@@ -1,10 +1,9 @@
-import CityEnemies from "./pages/CityEnemies/index";
-import Map from "./pages/Map";
+import Home from "./pages/Home/index";
 
 function App() {
   return (
     <div>
-      <Map />
+      <Home />
     </div>
   );
 }
