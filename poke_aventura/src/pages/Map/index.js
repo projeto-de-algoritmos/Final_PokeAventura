@@ -22,7 +22,8 @@ import {
   Button,
   ContainerTracking,
   MarkTracking,
-  ContainerArrow
+  ContainerArrow,
+  ButtonNext
 } from './styles';
 
 const RED = 0;
@@ -59,7 +60,7 @@ const NODES = [
   }
 ]
 
-function Map() {
+function Map({ nextStep, previousStep }) {
   const [arrayTracking, setArrayTracking] = useState(null);
 
   const generateGraph = useCallback(()=>{
@@ -118,6 +119,13 @@ function Map() {
           <MapImage src={MAP_POKEMON} />
         </ContextImage>
       </ContainerImage>
+
+      <ButtonNext style={{right: 250}} onClick={previousStep}>
+        <p>Voltar</p>
+      </ButtonNext>
+      <ButtonNext onClick={nextStep}>
+        <p>Próximo</p>
+      </ButtonNext>
     </Container>
   );
 }
