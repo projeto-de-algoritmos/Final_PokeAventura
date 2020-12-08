@@ -6,8 +6,9 @@ import MARK_BLUE from "./marcador_blue.png";
 import MARK_BLUE_LIGHT from "./marcador_blue_light.png";
 import MARK_GREEN from "./marcador_green.png";
 import BACKGROUND from "./background.jpg";
-import PROFESSOR from "./professor.png";
 import BADGES from "./ash_and_badge.png";
+import PROFESSOR from "./professor.png";
+import ARROW from "./seta.png";
 
 export {
   MAP_POKEMON,
@@ -20,4 +21,5 @@ export {
   BACKGROUND,
   PROFESSOR,
   BADGES,
+  ARROW,
 };
