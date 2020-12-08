@@ -16,8 +16,8 @@ function Introduction({ nextStep }) {
           topo{" "}
         </p>
         <Row>
-          <Btn>
-            <p onClick={nextStep}>Prosseguir</p>
+          <Btn onClick={nextStep}>
+            <p>Prosseguir</p>
           </Btn>
           <img src={PROFESSOR} style={{ height: 175 }} />
         </Row>
