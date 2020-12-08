@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import ButtonPokemon from "../../components/ButtonPokemon";
-import { Container, Btn, Column, Step, CityName, ColumnTeste } from "./styles";
+import { Container, Btn, Column, Step, CityName, ColumnTeste, ButtonNext } from "./styles";
 import rocket1 from "../../assets/rocket1.png";
 import rocket2 from "../../assets/rocket2.png";
 import rocket3 from "../../assets/rocket3.png";
@@ -10,7 +10,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 
 //const giovanni = "../../assets/giovanni.png";
 
-function CityEnemies() {
+function CityEnemies({nextStep, previousStep}) {
   const [enemyTeam, setEnemyTeam] = useState([]);
   const [isLoading, setIsLoading] = useState(false);
 
@@ -110,6 +110,16 @@ function CityEnemies() {
           })}
         </ColumnTeste>
       )}
+
+      <div style={{display: 'flex', flexDirection: 'row'}}>
+        <ButtonNext style={{marginRight: 30}} onClick={previousStep}>
+          <p>Voltar</p>
+        </ButtonNext>
+
+        <ButtonNext onClick={nextStep}>
+          <p>Próximo</p>
+        </ButtonNext>
+      </div>
     </Step>
   );
 }

@@ -47,3 +47,12 @@ export const ColumnTeste = styled.div`
   border-radius: 20px;
   margin: 10px;
 `;
+
+export const ButtonNext = styled.button`
+  height: 50px;
+  margin-top: 20px;
+  padding: 0px 50px;
+  align-items: center;
+  border-radius: 20px;
+  outline:none;
+`;
