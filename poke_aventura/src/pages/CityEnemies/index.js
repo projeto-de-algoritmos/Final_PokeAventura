@@ -68,12 +68,13 @@ function CityEnemies() {
 
   return (
     <Step>
-      <CityName>Pallet Town</CityName>
+      <CityName>Último desafio</CityName>
       <div style={{ width: "60%", textAlign: "justify" }}>
         <p>
-          Esses serão os inimigos que ira encontrar no ginásio, para se preparar
-          para eles, que tal ordernar do mais forte ao mais fraco ? para isso
-          clique no botão abaixo e descubra o poder dos seus oponentes
+          Esses serão os seus últimos inimigos antes de virar um mestre pokemon,
+          para se preparar para a batalha que tal ordernar do mais forte ao mais
+          fraco ? para isso clique no botão abaixo e descubra o poder dos seus
+          oponentes
         </p>
       </div>
       <Btn onClick={handleOrganize}>
@@ -85,7 +86,7 @@ function CityEnemies() {
         <ColumnTeste>
           {enemyTeam.map((enemy) => {
             return (
-              <Container>
+              <Container key={enemy.index}>
                 <Column>
                   <img src={enemy.sprite} />
 
