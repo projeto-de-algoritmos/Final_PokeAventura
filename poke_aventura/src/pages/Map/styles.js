@@ -49,4 +49,33 @@ export const Button = styled.button`
   align-items: center;
   border-radius: 20px;
   outline:none;
+  position: absolute;
+  left: 20px;
 `;
+
+export const ContainerTracking = styled.button`
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  right: 25%;
+  top: 15px;
+  background-color: transparent;
+  border: none;
+`;
+
+export const MarkTracking = styled.img`
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+`;
+
+export const ContainerArrow = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  p{
+    font-size: 10px;
+  }
+`;
+

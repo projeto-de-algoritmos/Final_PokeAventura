@@ -6,6 +6,7 @@ import MARK_BLUE from './marcador_blue.png';
 import MARK_BLUE_LIGHT from './marcador_blue_light.png';
 import MARK_GREEN from './marcador_green.png';
 import BACKGROUND from './background.jpg';
+import ARROW from './seta.png';
 
 export {
   MAP_POKEMON,
@@ -15,5 +16,6 @@ export {
   MARK_BLUE,
   MARK_BLUE_LIGHT,
   MARK_GREEN,
-  BACKGROUND
+  BACKGROUND,
+  ARROW
 }

@@ -1,4 +1,4 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import jsgraphs from 'js-graph-algorithms';
 
 import { 
@@ -9,6 +9,7 @@ import {
   MARK_BLUE_LIGHT,
   MARK_GREEN,
   MARK_ORANGE,
+  ARROW
 } from '../../assets';
 
 import { 
@@ -18,7 +19,10 @@ import {
   PersonImage, 
   ContextImage,
   MarkImage,
-  Button
+  Button,
+  ContainerTracking,
+  MarkTracking,
+  ContainerArrow
 } from './styles';
 
 const RED = 0;
@@ -35,27 +39,28 @@ const NODES = [
   },
   { 
     id: BLUE,
-    image: MARK_RED,
+    image: MARK_BLUE,
     edge: [GREEN, ORANGE],
   },
   {
     id: GREEN,
-    image: MARK_RED,
+    image: MARK_GREEN,
     edge: [ORANGE],
   },
   {
     id: ORANGE,
-    image: MARK_RED,
+    image: MARK_ORANGE,
     edge: [BLUE_LIGHT],
   },
   {
     id: BLUE_LIGHT,
-    image: MARK_RED,
+    image: MARK_BLUE_LIGHT,
     edge: [GREEN],
   }
 ]
 
 function Map() {
+  const [arrayTracking, setArrayTracking] = useState(null);
 
   const generateGraph = useCallback(()=>{
     // Definição do tamanho do grafo
@@ -65,21 +70,44 @@ function Map() {
     NODES.forEach(element => {
       element.edge.forEach(item=>{
         console.log(element.id, item)
-        g.addEdge(new jsgraphs.Edge(element.id, item, 5.0));
+        g.addEdge(new jsgraphs.Edge(element.id, item, Math.floor(Math.random() * 151) + 1));
       })
     });
 
     const dijkstra = new jsgraphs.Dijkstra(g, 0);
-
-    console.log(dijkstra.pathTo(BLUE_LIGHT));
+    console.log((dijkstra.pathTo(BLUE_LIGHT)))
+    setArrayTracking(dijkstra.pathTo(BLUE_LIGHT));
   }, []);
 
   return (
     <Container>
       <PersonImage src={ASH}/>
       <Button onClick={generateGraph}>
-        <p>Aperte</p>
+        <p>Gerar menor caminho</p>
       </Button>
+
+      {arrayTracking && (
+        <ContainerTracking>
+          <MarkTracking src={MARK_RED}/>
+          <ContainerArrow>
+            <MarkTracking src={ARROW}/>  
+            <p>{`Peso ${arrayTracking[0].weight}`}</p>
+          </ContainerArrow>
+          {arrayTracking.map((item, index)=>(
+            <div style={{display: 'flex', flexDirection: 'row'}} key={index}>
+              <MarkTracking src={NODES[item.w].image}/>
+
+              {arrayTracking.length - 1 > index && (
+                <ContainerArrow>
+                  <MarkTracking src={ARROW}/>  
+                  <p>{`Peso ${arrayTracking[index+1].weight}`}</p>
+                </ContainerArrow>
+              )}
+            </div>
+          ))}
+        </ContainerTracking>
+      )}
+
       <ContainerImage>
         <ContextImage>
           <MarkImage style={{bottom: 50, right:'45%'}} src={MARK_RED}/>
