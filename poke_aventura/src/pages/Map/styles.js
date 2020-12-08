@@ -41,3 +41,12 @@ export const MarkImage = styled.img`
   object-fit: cover;
   position: absolute;
 `;
+
+export const Button = styled.button`
+  height: 50px;
+  margin-top: 20px;
+  padding: 0px 50px;
+  align-items: center;
+  border-radius: 20px;
+  outline:none;
+`;

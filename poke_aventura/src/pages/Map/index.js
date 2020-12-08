@@ -1,4 +1,6 @@
 import React, { useCallback } from 'react';
+import jsgraphs from 'js-graph-algorithms';
+
 import { 
   MAP_POKEMON,
   ASH, 
@@ -15,7 +17,8 @@ import {
   ContainerImage, 
   PersonImage, 
   ContextImage,
-  MarkImage
+  MarkImage,
+  Button
 } from './styles';
 
 const RED = 0;
@@ -24,33 +27,59 @@ const GREEN = 2;
 const ORANGE = 3;
 const BLUE_LIGHT = 4;
 
-const NODES = {
-  red:{
+const NODES = [
+  {
     id: RED,
     image: MARK_RED,
     edge: [BLUE, GREEN]
   },
-  blue:{
+  { 
     id: BLUE,
     image: MARK_RED,
     edge: [GREEN, ORANGE],
   },
-  green:{
+  {
     id: GREEN,
     image: MARK_RED,
     edge: [ORANGE],
   },
-  blueLight: {
+  {
+    id: ORANGE,
+    image: MARK_RED,
+    edge: [BLUE_LIGHT],
+  },
+  {
     id: BLUE_LIGHT,
     image: MARK_RED,
     edge: [GREEN],
   }
-}
+]
 
 function Map() {
+
+  const generateGraph = useCallback(()=>{
+    // Definição do tamanho do grafo
+    const g = new jsgraphs.WeightedDiGraph(5);
+
+    // Definição das arestas
+    NODES.forEach(element => {
+      element.edge.forEach(item=>{
+        console.log(element.id, item)
+        g.addEdge(new jsgraphs.Edge(element.id, item, 5.0));
+      })
+    });
+
+    const dijkstra = new jsgraphs.Dijkstra(g, 0);
+
+    console.log(dijkstra.pathTo(BLUE_LIGHT));
+  }, []);
+
   return (
     <Container>
       <PersonImage src={ASH}/>
+      <Button onClick={generateGraph}>
+        <p>Aperte</p>
+      </Button>
       <ContainerImage>
         <ContextImage>
           <MarkImage style={{bottom: 50, right:'45%'}} src={MARK_RED}/>
